@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <title>Muscle project</title>
+  <meta name="keywords" content="flat bootstrap, bootstrap themes, creative responsive websites, illustration bootstrap design, blue responsive themes, mobile menu website">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/animate.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/custom-styles.css">
+
+  <script src="{{ STATIC_URL }}js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-57-precomposed.png">
+  <!-- <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.png"> -->
+</head>
+
+
+<body>
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- <a class="navbar-brand" href="/"><img src="{{ STATIC_URL }}img/" width="250px" alt="Logo"></a> -->
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Estatísticas</a></li>
+          <li><a href="/search/">Análise</a></li>
+          <li class="sign-up"><a href="signup.html"><span class="white"> Entrar</span></a></li>
+        </ul>
+      </div><!--/.navbar-collapse -->
+    </div>
+  </div>
+
+  <br><br><br><br><br>
+{% block content %}
+
+{% endblock content %}
+
+    <!--Bottom Section-->
+    <section id="bottom">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 text-center">
+            <br><br>
+            <ul class="social-icons">
+              <li><a class="linkedin" href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin fa-3x"></i></a></li>
+              <li><a class="Github" href="http://www.github.com" target="_blank"><i class="fa fa-github-alt fa-3x"></i></a></li>
+            </ul>
+          </div>
+        </div>
+    </section>
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/jquery-1.10.1.min.js"><\/script>')</script>
+    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+    <script src="{{ STATIC_URL }}js/main.js"></script>
+
+    </body>
+</html>
+
