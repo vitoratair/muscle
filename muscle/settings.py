@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'muscle.core',
+    'muscle.board',
 )
 
 MIDDLEWARE_CLASSES = (
