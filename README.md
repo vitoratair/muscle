@@ -1,6 +1,25 @@
 Welcome to muscle
 ===
 
+Muscle is a school project started by Luciano to monitor some sensors coupled on <b>CYPRESS PSoC4 microcontroller</b>.
+
+All low level programming was implemented by him, the django platform and all high level programming was implemented by me.
+
+We will use it to learning about python, django and C programming.
+
+
+### Communication structure
+
+The board sends when requested sensor's informations to be processed by django and save it in database.
+
+The data is received in hexadecimal format, so, to the application understand the data, was used a structure to let it easier. Below it is displayed.
+
+####Estrutura TLV
+
+| Start | Version | Timestamp | Type | Format | Len | paylod |
+| ----- |:-------:|:---------:|:----:|:------:|:---:| ------:|
+| 2 Bytes | 2 Bytes | 4 Bytes | 2 Bytes | 1 Byte | 2 Bytes | len(Bytes) |
+
 
 ### Getting Started
 
