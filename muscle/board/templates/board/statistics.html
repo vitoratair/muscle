@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load board_tags %}
+
+<script type="text/javascript">
+$(function () {
+        $('#container').highcharts({
+            chart: {
+              type: 'area',
+              zoomType: 'x'
+            },
+            title: {
+                text: 'Monitor Cardiaco',
+                x: -20 //center
+            },
+            subtitle: {
+                text: '',
+                x: -20
+            },
+            xAxis: {
+                categories: {{labelHeart}}
+            },
+            yAxis: {
+                min: 0,
+                max: 2047,
+                title: {
+                    text: 'Frequência'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: '°C'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series:
+            [
+             {  name: 'Tempo',
+                data: {{heart}}
+            }]
+        });
+    });
+
+</script>
+
+  <section id="content">
+    <div class="container">
+
+      <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    </div>
+  </section>
+
+
+
+{% endblock content %}

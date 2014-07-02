@@ -28,7 +28,26 @@ def search(request):
 
     return render(request, 'board/search.html', {'data': data})
 
+def statistics(request):
 
+    heart = Structure.objects.filter(Q(dataType=1))[:20]
+    aux = ''
+
+    for i in heart:
+        aux = str(aux) + "," + str(i.dataPayload)
+    aux = str(aux) + ']'
+    aux = "[" + str(aux[1:])
+    heart = aux
+
+    aux = ''
+    for i in range(0,19):
+        aux = str(aux) + " , " + str(i)
+
+    aux = str(aux) + ']'
+    aux = "[" + str(aux[2:])
+    labelHeart = aux
+
+    return render(request, 'board/statistics.html', {'heart': heart, 'labelHeart': labelHeart})
 
 
 
