@@ -31,8 +31,8 @@ def search(request):
 def statistics(request):
 
     heart = Structure.objects.filter(Q(dataType=1))[:20]
-    aux = ''
 
+    aux = ''
     for i in heart:
         aux = str(aux) + "," + str(i.dataPayload)
     aux = str(aux) + ']'
@@ -47,7 +47,19 @@ def statistics(request):
     aux = "[" + str(aux[2:])
     labelHeart = aux
 
-    return render(request, 'board/statistics.html', {'heart': heart, 'labelHeart': labelHeart})
+    axisX = Structure.objects.filter(Q(dataType=10))[:20]
+    axisY = Structure.objects.filter(Q(dataType=11))[:20]
+    axisZ = Structure.objects.filter(Q(dataType=11))[:20]
+
+    aux = ''
+    for i in range(0,20):
+        aux = str(aux) + ",[" + str(axisX[i].dataPayload) + ',' + str(axisY[i].dataPayload) + ',' + str(axisZ[i].dataPayload) + "]"
+
+    aux = str(aux)
+    aux = str(aux[1:])
+    axis = aux
+
+    return render(request, 'board/statistics.html', {'heart': heart, 'labelHeart': labelHeart, 'axis': axis})
 
 
 
