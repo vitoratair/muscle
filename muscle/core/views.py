@@ -7,10 +7,3 @@ def home(request):
     """
 
     return render(request, 'home/index.html')
-
-def search(request):
-    """
-    	Esse método tem como objetivo a busca das informações na placa
-    """
-
-    return render(request, 'board/search.html')
