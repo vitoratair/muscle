@@ -2,6 +2,7 @@
 
 {% block content %}
 
+{% load board_tags %}
 
   <section id="message">
     <div class="container">
@@ -14,9 +15,40 @@
     </div>
   </section>
 
+  <div class="col-md-12" align="right">
+    <div class="col-md-10">
+      <a href="/board/search/" class="btn-main">Leitura de placa</a>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
   <section id="content">
     <div class="container">
 
+      {% if data %}
+        <table class="table table-bordered table-hover table-striped">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Usuário</th>
+              <th>Tipo</th>
+              <th>Dado</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for element in data %}
+              <tr>
+                <td>{{ element.timestamp | get_datetime_by_timestamp }}</td>
+                <td>{{ element.mac }}</td>
+                <td>{{ element.dataType }}</td>
+                <td>{{ element.dataPayload }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+
+        </table>
+      {% endif %}
     </div>
   </section>
 
