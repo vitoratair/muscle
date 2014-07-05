@@ -16,9 +16,9 @@ The data is received in hexadecimal format, so, to the application understand th
 
 ####Estrutura TLV
 
-| Start | Version | Timestamp | Type | Format | Len | paylod |
-| ----- |:-------:|:---------:|:----:|:------:|:---:| ------:|
-| 2 Bytes | 2 Bytes | 4 Bytes | 2 Bytes | 1 Byte | 2 Bytes | len(Bytes) |
+| Start | Version | Timestamp | Device | Data Type | Data Format | Data Len | Data Payload |
+| ----- |:-------:|:---------:|:------:|:---------:|:-----------:|:--------:| ------------:|
+| 1B | 1B | 8B | 12B | 2B | 2B | 2B | (Data Len)B |
 
 
 ### Getting Started
@@ -65,4 +65,12 @@ June 27, 2014 - 19:13:51
 Django version 1.6, using settings 'muscle.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.	
+```
+
+### Starting <b>database</b> with needed values
+
+Open your default browser and type the below url:
+
+```
+http://127.0.0.1:8000/board/startDB/
 ```
