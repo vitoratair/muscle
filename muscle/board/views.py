@@ -1,7 +1,7 @@
 # coding: utf-8
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from muscle.board.library.readData import ReadData
-from models import Structure
+from models import Structure, Type
 from django.db.models import Q
 
 def home(request):
@@ -15,14 +15,15 @@ def search(request):
 
     listInformation = []
     board = ReadData()
+    # data = board.searchData()
     data = board.getStart()
 
-    for elements in data:
+    # for elements in data:
 
-        if len(elements) != 0:
-            listInformation.append(board.execParser(elements))
+    #     if len(elements) != 0:
+    #         listInformation.append(board.execParser(elements))
 
-    board.saveData(listInformation)
+    # board.saveData(listInformation)
 
     data = Structure.objects.filter(Q(dataType=1)| Q(dataType=10) | Q(dataType=11) | Q(dataType=12))
 
@@ -61,7 +62,36 @@ def statistics(request):
 
     return render(request, 'board/statistics.html', {'heart': heart, 'labelHeart': labelHeart, 'axis': axis})
 
+def startDB(request):
+    """
+        Esse método tem como objetivo iniciar o banco de dados para a aplicação
+    """
 
+    Type.objects.all().delete()
 
+    db = Type(cod=1, nome="Coração")
+    db.save()
+
+    db = Type(cod=4, nome="XRAW_T")
+    db.save()
+    db = Type(cod=5, nome="YRAW_T")
+    db.save()
+    db = Type(cod=6, nome="ZRAW_T")
+    db.save()
+    db = Type(cod=7, nome="XVOLT_T")
+    db.save()
+    db = Type(cod=8, nome="YVOLT_T")
+    db.save()
+    db = Type(cod=9, nome="ZVOLT_T")
+    db.save()
+
+    db = Type(cod=10, nome="Eixo X")
+    db.save()
+    db = Type(cod=11, nome="Eixo Y")
+    db.save()
+    db = Type(cod=12, nome="Eixo Z")
+    db.save()
+
+    return HttpResponseRedirect('/board/')
 
 
