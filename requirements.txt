@@ -3,5 +3,5 @@ Unipath==1.0
 dj-database-url==0.2.2
 dj-static==0.0.5
 gunicorn==18.0
-psycopg2==2.5.1
+spur==0.3.11
 django-decouple==2.1
